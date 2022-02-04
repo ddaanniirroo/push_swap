@@ -6,11 +6,31 @@
 /*   By: daniilvoronin <daniilvoronin@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 17:53:07 by daniilvoron       #+#    #+#             */
-/*   Updated: 2022/02/04 20:13:57 by daniilvoron      ###   ########.fr       */
+/*   Updated: 2022/02/04 20:41:35 by daniilvoron      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	ft_index(int *arr, int argc, t_list list_a)
+{
+	int		i;
+	t_list	*tmp;
+
+	i = 0;
+	tmp = &list_a;
+	while (tmp)
+	{
+		while (i < argc - 1)
+		{
+			if (tmp->data == arr[i])
+				tmp->index = i;
+			i++;
+		}
+		tmp = tmp->next;
+		i = 0;
+	}
+}
 
 void	ft_sort_arr(int *arr, int argc)
 {
@@ -93,15 +113,16 @@ int main(int argc, char **argv)
 		exit(1);
 	ft_create(arr, &list_a, argc, argv);
 	ft_sort_arr(arr, argc);
+	ft_double(argc, argv);
 
 	// while (list_a)
 	// {
 	// printf("%d\n", list_a->data);
 	// list_a=list_a->next;
 	// }
-	while (i < argc - 1)
-	{
-		printf("%d\n", arr[i]);
-		i++;
-	}
+	// while (i < argc - 1)
+	// {
+	// 	printf("%d\n", arr[i]);
+	// 	i++;
+	// }
 }

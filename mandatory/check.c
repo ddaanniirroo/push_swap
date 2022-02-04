@@ -1,34 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daniilvoronin <daniilvoronin@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/04 17:53:40 by daniilvoron       #+#    #+#             */
-/*   Updated: 2022/02/04 20:41:58 by daniilvoron      ###   ########.fr       */
+/*   Created: 2022/02/04 20:41:14 by daniilvoron       #+#    #+#             */
+/*   Updated: 2022/02/04 20:42:45 by daniilvoron      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h>
-
-typedef struct s_list
+void	ft_double(int argc, char **argv)
 {
-	int				data;
-	int				index;
-	struct s_list	*next;
-} t_list;
+	int	i;
+	int	j;
 
-//ft_atoi
-int			ft_atoi(const char *str);
-static int	min_max(unsigned long long int num, int min, const char *str);
-//check
-void	ft_double(int argc, char **argv);
-
-#endif
+	i = 1;
+	while (i < argc)
+	{
+		j = i + 1;
+		while (j < argc)
+		{
+			if (ft_atoi(argv[i]) == ft_atoi(argv[j]))
+			{
+				printf("Error!\nHas duplicate!\n");
+				exit(1);
+			}
+			j++;
+		}
+		i++;
+	}
+}
