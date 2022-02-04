@@ -6,7 +6,7 @@
 /*   By: daniilvoronin <daniilvoronin@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 17:53:07 by daniilvoron       #+#    #+#             */
-/*   Updated: 2022/02/04 20:45:51 by daniilvoron      ###   ########.fr       */
+/*   Updated: 2022/02/04 20:47:53 by daniilvoron      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ int main(int argc, char **argv)
 
 	arr = malloc(sizeof(char *) * (argc - 1));
 	if (arr == NULL)
-		return ;
+		return (NULL);
 	if (argc <= 2)
 		exit(1);
 	ft_create(arr, &list_a, argc, argv);
