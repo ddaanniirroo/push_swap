@@ -3,22 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daniilvoronin <daniilvoronin@student.42    +#+  +:+       +#+        */
+/*   By: cprester <cprester@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 17:53:07 by daniilvoron       #+#    #+#             */
-/*   Updated: 2022/02/04 20:47:53 by daniilvoron      ###   ########.fr       */
+/*   Updated: 2022/02/10 23:18:45 by cprester         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_index(int *arr, int argc, t_list list_a)
+void	ft_index(int *arr, int argc, t_list **list_a)
 {
 	int		i;
 	t_list	*tmp;
 
 	i = 0;
-	tmp = &list_a;
+	tmp = *list_a;
 	while (tmp)
 	{
 		while (i < argc - 1)
@@ -108,15 +108,20 @@ int main(int argc, char **argv)
 	int		*arr;
 	int		i = 0;
 
+	list_b = NULL;
 	arr = malloc(sizeof(char *) * (argc - 1));
 	if (arr == NULL)
-		return (NULL);
+		return (0);
 	if (argc <= 2)
 		exit(1);
 	ft_create(arr, &list_a, argc, argv);
 	ft_sort_arr(arr, argc);
 	ft_double(argc, argv);
-
+	ft_index(arr, argc, &list_a);
+	ft_sort_for_three(&list_a, &list_b);
+	printf("%d\n", list_a->data);
+	printf("%d\n", list_a->next->data);
+	printf("%d\n", list_a->next->next->data);
 	// while (list_a)
 	// {
 	// printf("%d\n", list_a->data);
