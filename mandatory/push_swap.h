@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daniilvoronin <daniilvoronin@student.42    +#+  +:+       +#+        */
+/*   By: cprester <cprester@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 17:53:40 by daniilvoron       #+#    #+#             */
-/*   Updated: 2022/02/11 01:09:49 by daniilvoron      ###   ########.fr       */
+/*   Updated: 2022/02/12 17:02:48 by cprester         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,6 @@ void		ft_sort(t_list **list_a, t_list **list_b, int argc);
 void		ft_sort_for_three(t_list **list_a, t_list **list_b);
 void		ft_sort_for_two(t_list **list_a, t_list **list_b);
 void		ft_sort_for_four(t_list **list_a, t_list **list_b);
-void		sort_for_four(t_list **list_a, t_list **list_b, int argc);
+void		ft_sort_for_five(t_list **list_a, t_list **list_b);
 
 #endif
