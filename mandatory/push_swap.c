@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cprester <cprester@student.42.fr>          +#+  +:+       +#+        */
+/*   By: daniilvoronin <daniilvoronin@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 17:53:07 by daniilvoron       #+#    #+#             */
-/*   Updated: 2022/02/10 23:18:45 by cprester         ###   ########.fr       */
+/*   Updated: 2022/02/11 00:23:22 by daniilvoron      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,18 +118,7 @@ int main(int argc, char **argv)
 	ft_sort_arr(arr, argc);
 	ft_double(argc, argv);
 	ft_index(arr, argc, &list_a);
-	ft_sort_for_three(&list_a, &list_b);
+	ft_sort(&list_a, &list_b, argc);
 	printf("%d\n", list_a->data);
 	printf("%d\n", list_a->next->data);
-	printf("%d\n", list_a->next->next->data);
-	// while (list_a)
-	// {
-	// printf("%d\n", list_a->data);
-	// list_a=list_a->next;
-	// }
-	// while (i < argc - 1)
-	// {
-	// 	printf("%d\n", arr[i]);
-	// 	i++;
-	// }
 }

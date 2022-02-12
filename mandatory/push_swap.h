@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cprester <cprester@student.42.fr>          +#+  +:+       +#+        */
+/*   By: daniilvoronin <daniilvoronin@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 17:53:40 by daniilvoron       #+#    #+#             */
-/*   Updated: 2022/02/10 23:08:39 by cprester         ###   ########.fr       */
+/*   Updated: 2022/02/11 01:09:49 by daniilvoron      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,10 @@ void		ft_ra_rb_rr(t_list **list_a, t_list **list_b, char c);
 void		ft_reverse_rotate(t_list **list);
 void		ft_rra_rrb_rrr(t_list **list_a, t_list **list_b, char c);
 //sort
+void		ft_sort(t_list **list_a, t_list **list_b, int argc);
 void		ft_sort_for_three(t_list **list_a, t_list **list_b);
+void		ft_sort_for_two(t_list **list_a, t_list **list_b);
+void		ft_sort_for_four(t_list **list_a, t_list **list_b);
+void		sort_for_four(t_list **list_a, t_list **list_b, int argc);
 
 #endif

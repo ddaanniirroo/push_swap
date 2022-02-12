@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reverse_and_rotate.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cprester <cprester@student.42.fr>          +#+  +:+       +#+        */
+/*   By: daniilvoronin <daniilvoronin@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 21:15:55 by cprester          #+#    #+#             */
-/*   Updated: 2022/02/10 23:27:02 by cprester         ###   ########.fr       */
+/*   Updated: 2022/02/11 00:10:59 by daniilvoron      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,18 +64,18 @@ void	ft_rra_rrb_rrr(t_list **list_a, t_list **list_b, char c)
 {
 	if (c == 'a')
 	{
-		ft_rotate(list_a);
+		ft_reverse_rotate(list_a);
 		write(1, "rra\n", 4);
 	}
 	else if (c == 'b')
 	{
-		ft_rotate(list_b);
+		ft_reverse_rotate(list_b);
 		write(1, "rrb\n", 4);
 	}
 	else
 	{
-		ft_rotate(list_a);
-		ft_rotate(list_b);
+		ft_reverse_rotate(list_a);
+		ft_reverse_rotate(list_b);
 		write(1, "rrr\n", 4);
 	}
 }
