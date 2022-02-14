@@ -3,34 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daniilvoronin <daniilvoronin@student.42    +#+  +:+       +#+        */
+/*   By: cprester <cprester@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 17:53:07 by daniilvoron       #+#    #+#             */
-/*   Updated: 2022/02/11 00:23:22 by daniilvoron      ###   ########.fr       */
+/*   Updated: 2022/02/14 23:41:01 by cprester         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	ft_index(int *arr, int argc, t_list **list_a)
-{
-	int		i;
-	t_list	*tmp;
-
-	i = 0;
-	tmp = *list_a;
-	while (tmp)
-	{
-		while (i < argc - 1)
-		{
-			if (tmp->data == arr[i])
-				tmp->index = i;
-			i++;
-		}
-		tmp = tmp->next;
-		i = 0;
-	}
-}
 
 void	ft_sort_arr(int *arr, int argc)
 {
@@ -101,12 +81,11 @@ void	ft_create(int *arr, t_list **list_a, int argc, char **argv)
 	}
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_list	*list_a;
 	t_list	*list_b;
 	int		*arr;
-	int		i = 0;
 
 	list_b = NULL;
 	arr = malloc(sizeof(char *) * (argc - 1));
@@ -117,8 +96,13 @@ int main(int argc, char **argv)
 	ft_create(arr, &list_a, argc, argv);
 	ft_sort_arr(arr, argc);
 	ft_double(argc, argv);
+	ft_check_sort(&list_a, argc);
 	ft_index(arr, argc, &list_a);
 	ft_sort(&list_a, &list_b, argc);
-	printf("%d\n", list_a->data);
-	printf("%d\n", list_a->next->data);
+	free(arr);
+	while (list_a)
+	{
+		free(&list_a->data);
+		free(&list_a->index);
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: cprester <cprester@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 23:03:43 by cprester          #+#    #+#             */
-/*   Updated: 2022/02/12 17:09:19 by cprester         ###   ########.fr       */
+/*   Updated: 2022/02/14 23:27:58 by cprester         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,15 @@
 void	ft_sort(t_list **list_a, t_list **list_b, int argc)
 {
 	if (argc == 3)
-		ft_sort_for_two(list_a, list_b);
+		ft_sa_sb_ss(list_a, list_b, 'a');
 	else if (argc == 4)
 		ft_sort_for_three(list_a, list_b);
-	else if (argc == 5)
-		ft_sort_for_four(list_a, list_b);
 	else if (argc == 6)
-		ft_sort_for_five(list_a, list_b);
-}
-
-void	ft_sort_for_two(t_list **list_a, t_list **list_b)
-{
-	if ((*list_a)->data > (*list_a)->next->data)
-		ft_sa_sb_ss(list_a, list_b, 'a');
+		ft_sort_for_five(list_a, list_b, argc);
+	else if (argc >= 7 && argc <= 101)
+		ft_sort_for_100(list_a, list_b, argc);
+	else
+		ft_sort_for_500(list_a, list_b, argc);
 }
 
 void	ft_sort_for_three(t_list **list_a, t_list **list_b)
@@ -58,36 +54,56 @@ void	ft_sort_for_three(t_list **list_a, t_list **list_b)
 		ft_sa_sb_ss(list_a, list_b, 'a');
 }
 
-void	ft_sort_for_four(t_list **list_a, t_list **list_b)
+int	ft_count_n(t_list *list)
 {
-	while ((*list_a) != NULL)
+	int	n;
+
+	n = 0;
+	while (list)
 	{
-		if ((*list_a)->index == 0)
-		{
-			ft_pa_pb(list_a, list_b, 'b');
-			break ;
-		}
-		else
-			ft_ra_rb_rr(list_a, list_b, 'a');
+		n++;
+		list = list->next;
 	}
-	ft_sort_for_three(list_a, list_b);
-	ft_pa_pb(list_a, list_b, 'a');
+	return (n);
 }
 
-// void	ft_sort_for_five(t_list **list_a, t_list **list_b)
-// {
-// 	while ((*list_a) != NULL)
-// 	{
-// 		if ((*list_a)->index == 0 || (*list_a)->index == 4)
-// 		{
-// 			ft_pa_pb(list_a, list_b, 'b');
-// 			break ;
-// 		}
-// 		else
-// 			ft_ra_rb_rr(list_a, list_b, 'a');
-// 	}
-// 	ft_sort_for_three(list_a, list_b);
-// 	ft_pa_pb(list_a, list_b, 'a');
-// 	ft_ra_rb_rr(list_a, list_b, 'a');
-// 	ft_pa_pb(list_a, list_b, 'a');
-// }
+void	ft_five_finish(t_list **list_a, t_list **list_b)
+{
+	ft_sort_for_three(list_a, list_b);
+	while (ft_count_n(*list_b) != 0)
+	{
+		if ((*list_b)->index == 0)
+			ft_pa_pb(list_a, list_b, 'a');
+		else
+		{
+			ft_pa_pb(list_a, list_b, 'a');
+			ft_ra_rb_rr(list_a, list_b, 'a');
+		}
+	}
+}
+
+void	ft_sort_for_five(t_list **list_a, t_list **list_b, int argc)
+{
+	t_list	*max_min;
+
+	max_min = *list_a;
+	while (ft_count_n(*list_a) != 3)
+	{
+		if (max_min->index == 0)
+		{
+			max_min = max_min->next;
+			ft_pa_pb(list_a, list_b, 'b');
+		}
+		else if (max_min->index == argc - 2)
+		{
+			max_min = max_min->next;
+			ft_pa_pb(list_a, list_b, 'b');
+		}
+		else
+		{
+			max_min = max_min->next;
+			ft_ra_rb_rr(list_a, list_b, 'a');
+		}
+	}
+	ft_five_finish(list_a, list_b);
+}

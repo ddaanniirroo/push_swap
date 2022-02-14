@@ -6,7 +6,7 @@
 /*   By: cprester <cprester@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 17:53:40 by daniilvoron       #+#    #+#             */
-/*   Updated: 2022/02/12 17:02:48 by cprester         ###   ########.fr       */
+/*   Updated: 2022/02/14 23:35:58 by cprester         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ int			ft_atoi(const char *str);
 static int	min_max(unsigned long long int num, int min, const char *str);
 //check
 void		ft_double(int argc, char **argv);
+void		ft_check_sort(t_list **list_a, int argc);
+void		ft_index(int *arr, int argc, t_list **list_a);
 //swap and push
 void		ft_swap(t_list **list);
 void		ft_sa_sb_ss(t_list **list_a, t_list **list_b, char c);
@@ -42,8 +44,13 @@ void		ft_rra_rrb_rrr(t_list **list_a, t_list **list_b, char c);
 //sort
 void		ft_sort(t_list **list_a, t_list **list_b, int argc);
 void		ft_sort_for_three(t_list **list_a, t_list **list_b);
-void		ft_sort_for_two(t_list **list_a, t_list **list_b);
-void		ft_sort_for_four(t_list **list_a, t_list **list_b);
-void		ft_sort_for_five(t_list **list_a, t_list **list_b);
+void		ft_sort_for_five(t_list **list_a, t_list **list_b, int argc);
+void		ft_five_finish(t_list **list_a, t_list **list_b);
+int			ft_count_n(t_list *list);
+//also_sort
+int			ft_search_max(t_list **list_b, int i);
+void		ft_sort_b(t_list **list_a, t_list **list_b, int argc);
+void		ft_sort_for_100(t_list **list_a, t_list **list_b, int argc);
+void		ft_sort_for_500(t_list **list_a, t_list **list_b, int argc);
 
 #endif
