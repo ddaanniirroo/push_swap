@@ -6,7 +6,7 @@
 /*   By: cprester <cprester@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 17:53:40 by daniilvoron       #+#    #+#             */
-/*   Updated: 2022/02/14 23:35:58 by cprester         ###   ########.fr       */
+/*   Updated: 2022/02/15 20:49:20 by cprester         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,10 @@ typedef struct s_list
 int			ft_atoi(const char *str);
 static int	min_max(unsigned long long int num, int min, const char *str);
 //check
-void		ft_double(int argc, char **argv);
+void		ft_double(int argc, char **argv, t_list **list_a);
 void		ft_check_sort(t_list **list_a, int argc);
 void		ft_index(int *arr, int argc, t_list **list_a);
+void		ft_free_list(t_list **lst);
 //swap and push
 void		ft_swap(t_list **list);
 void		ft_sa_sb_ss(t_list **list_a, t_list **list_b, char c);

@@ -6,7 +6,7 @@
 /*   By: cprester <cprester@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 17:53:07 by daniilvoron       #+#    #+#             */
-/*   Updated: 2022/02/14 23:41:01 by cprester         ###   ########.fr       */
+/*   Updated: 2022/02/15 20:49:32 by cprester         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ t_list	*create_list(long int i)
 	t_list	*el;
 
 	el = malloc(sizeof(t_list));
+	if (el == NULL)
+		return (0);
 	el->data = i;
 	el->next = NULL;
 	return (el);
@@ -87,22 +89,18 @@ int	main(int argc, char **argv)
 	t_list	*list_b;
 	int		*arr;
 
+	if (argc <= 2)
+		exit(1);
 	list_b = NULL;
 	arr = malloc(sizeof(char *) * (argc - 1));
 	if (arr == NULL)
 		return (0);
-	if (argc <= 2)
-		exit(1);
 	ft_create(arr, &list_a, argc, argv);
 	ft_sort_arr(arr, argc);
-	ft_double(argc, argv);
+	ft_double(argc, argv, &list_a);
 	ft_check_sort(&list_a, argc);
 	ft_index(arr, argc, &list_a);
 	ft_sort(&list_a, &list_b, argc);
 	free(arr);
-	while (list_a)
-	{
-		free(&list_a->data);
-		free(&list_a->index);
-	}
+	ft_free_list(&list_a);
 }

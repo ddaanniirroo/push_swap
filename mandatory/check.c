@@ -6,13 +6,13 @@
 /*   By: cprester <cprester@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 20:41:14 by daniilvoron       #+#    #+#             */
-/*   Updated: 2022/02/14 23:35:10 by cprester         ###   ########.fr       */
+/*   Updated: 2022/02/15 20:49:50 by cprester         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_double(int argc, char **argv)
+void	ft_double(int argc, char **argv, t_list **list_a)
 {
 	int	i;
 	int	j;
@@ -74,5 +74,17 @@ void	ft_index(int *arr, int argc, t_list **list_a)
 		}
 		tmp = tmp->next;
 		i = 0;
+	}
+}
+
+void	ft_free_list(t_list **lst)
+{
+	t_list	*to_del;
+
+	while (*lst)
+	{
+		to_del = *lst;
+		*lst = (*lst)->next;
+		free(to_del);
 	}
 }
